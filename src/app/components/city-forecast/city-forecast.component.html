@@ -1,0 +1,43 @@
+<div class="card-container">
+    <h2 class="title-card">Next hours</h2>
+    <div class="next-hours-container">
+        <div class="hour-container"*ngFor="let hour of nextHoursData">
+            <span class="temperature">
+                {{ hour.temp }}°C
+            </span>
+            <span class="humidity">
+                {{ hour.humidity }}%
+            </span>
+            <span class="icon">
+                <img [src]="hour.icon">
+            </span>
+            <span class="time">
+                {{ hour.dt | date: 'shortTime' }}
+            </span>
+        </div>
+    </div>
+</div>
+<div class="card-container">
+    <h2 class="title-card">Next {{ nextDays }} days</h2>
+    <div class="next-days-container">
+        <div class="day-container"*ngFor="let day of nextDaysData">
+            <span class="icon">
+                <img [src]="day.icon">
+            </span>
+            <div class="description">
+                <span class="time">
+                    {{ day.dt | date: 'shortTime' }}
+                </span>
+                <span>
+                    {{ day.description }}
+                </span>
+            </div>
+            <span class="temp-max">
+                {{ day.temp_max }}°C
+            </span>
+            <span class="temp-max">
+                {{ day.temp_min }}°C
+            </span>
+        </div>
+    </div>
+</div>

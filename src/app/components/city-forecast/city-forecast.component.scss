@@ -1,0 +1,53 @@
+$cards-background-color: white;
+$cards-padding: 12px;
+
+:host {
+  padding: 10px;
+  background: url('../../../assets/background.png') center;
+  display: flex;
+  flex-direction: column;
+  > *:not(:last-child){
+    margin-bottom: 10px;
+  }
+}
+
+.title-card {
+  border-bottom: 1px solid;
+}
+
+.card-container{
+  background-color: $cards-background-color;
+  padding: $cards-padding;
+}
+
+.next-hours-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+
+  .hour-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100px;
+    justify-content: space-around;
+  }
+}
+
+.next-days-container {
+  display: flex;
+  flex-direction: column;
+
+  .day-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    min-height: 60px;
+    align-items: center;
+
+    .description{
+      display: flex;
+      flex-direction: column;
+    }
+  }
+}

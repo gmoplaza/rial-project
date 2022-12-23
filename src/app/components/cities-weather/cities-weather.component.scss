@@ -1,0 +1,29 @@
+@use "@material/textfield";
+
+:host {
+  display: flex;
+  flex-direction: column;
+  background-color: cornflowerblue;
+  width: 450px;
+}
+
+header {
+  display: flex;
+  flex-direction: row;
+  padding: 0 10px;
+  align-items: center;
+  color: white;
+  .title {
+    margin-right: auto;
+  }
+  .search {
+    mat-icon {
+      font-size: 30px;
+    }
+  }
+}
+
+footer {
+  display: flex;
+  flex-direction: row-reverse;
+}
