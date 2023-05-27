@@ -1,26 +1,37 @@
 <div class="card-container">
     <h2 class="title-card">Next hours</h2>
     <div class="next-hours-container">
-        <div class="hour-container"*ngFor="let hour of nextHoursData">
+        <div class="loading-container" *ngIf="!(nextHoursData$ | async)">
+            <span>
+                <mat-spinner [diameter]="60"></mat-spinner>
+            </span>
+        </div>
+        <div class="hour-container" *ngFor="let hour of nextHoursData$ | async">
             <span class="temperature">
-                {{ hour.temp }}°C
+                {{ hour?.temp }}°C
             </span>
             <span class="humidity">
-                {{ hour.humidity }}%
+                {{ hour?.humidity }}%
             </span>
             <span class="icon">
-                <img [src]="hour.icon">
+                <img [src]="hour?.icon">
             </span>
             <span class="time">
-                {{ hour.dt | date: 'shortTime' }}
+                {{ hour?.dt | date: 'shortTime' }}
             </span>
         </div>
     </div>
 </div>
+
 <div class="card-container">
     <h2 class="title-card">Next {{ nextDays }} days</h2>
     <div class="next-days-container">
-        <div class="day-container"*ngFor="let day of nextDaysData">
+        <div class="loading-container" *ngIf="!(nextDaysData$ | async)">
+            <span>
+                <mat-spinner [diameter]="60"></mat-spinner>
+            </span>
+        </div>
+        <div class="day-container" *ngFor="let day of nextDaysData$ | async">
             <span class="icon">
                 <img [src]="day.icon">
             </span>
