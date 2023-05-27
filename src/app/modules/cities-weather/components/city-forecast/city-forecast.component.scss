@@ -1,13 +1,21 @@
-$cards-background-color: white;
+@import "../../../../styles/positions";
+@import "../../../../styles/colors";
+
+$cards-background-color: $secondary-color;
 $cards-padding: 12px;
 
 :host {
-  padding: 10px;
-  background: url('../../../assets/background.png') center;
   display: flex;
   flex-direction: column;
-  > *:not(:last-child){
-    margin-bottom: 10px;
+  gap: 10px;
+  height: 100%;
+  padding: $app-border-padding;
+  box-sizing: border-box;
+
+  background: url('../../../../../assets/background.png') center;
+
+  :last-child {
+    flex-grow: 1;
   }
 }
 
@@ -18,18 +26,21 @@ $cards-padding: 12px;
 .card-container{
   background-color: $cards-background-color;
   padding: $cards-padding;
+  display: flex;
+  flex-direction: column;
 }
 
 .next-hours-container {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+  height: 165px;
 
   .hour-container {
     display: flex;
     flex-direction: column;
     align-items: center;
-    min-height: 100px;
+    height: 100%;
     justify-content: space-around;
   }
 }
@@ -49,5 +60,14 @@ $cards-padding: 12px;
       display: flex;
       flex-direction: column;
     }
+  }
+}
+
+.loading-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  mat-spinner {
+    margin: auto;
   }
 }

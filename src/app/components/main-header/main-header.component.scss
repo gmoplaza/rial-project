@@ -1,0 +1,14 @@
+@import "../../styles/positions";
+@import "../../styles/typography";
+@import "../../styles/colors";
+
+header {
+  display: flex;
+  flex-direction: row;
+  padding: 0 $app-border-padding;
+  align-items: center;
+  justify-content: space-between;
+  color: $secondary-color;
+
+  @include rial-h2;
+}

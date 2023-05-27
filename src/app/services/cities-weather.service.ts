@@ -22,8 +22,17 @@ export class CitiesWeatherService {
     );
   }
 
+  // In a real case, this method only return the cities filtered in the server
   search(searchValue: string): Observable<City[]> {
     if (this.citiesMap.size) return of(this.getFilterCities(searchValue));
+
+    return this.populateCitiesMap().pipe(
+      map(() => this.getFilterCities(searchValue))
+    )
+    
+  }
+
+  private populateCitiesMap(): Observable<true> {
     return this._http.get('assets/cities_20000.csv', {responseType: 'text'}).pipe(
       map(((value) => value.split('\n'))),
       map(value => value.slice(1)),
@@ -42,15 +51,17 @@ export class CitiesWeatherService {
           }
           this.citiesMap.set(city.name, city);
         })
-        return this.getFilterCities(searchValue);
+        return true;
       })
     )
   }
 
   private getFilterCities(search: string) {
+    const searchValue = search.toLowerCase();
     const maxResult = 10;
     return Array.from(this.citiesMap.entries()).reduce((accumulator, [name, city]) => {
-      if (maxResult > accumulator.length && name.includes(search)) accumulator.push(city as never);
+      if (maxResult <= accumulator.length) return accumulator;
+      if (maxResult > accumulator.length && name.toLowerCase().includes(searchValue)) accumulator.push(city as never);
       return accumulator;
     },
       [],

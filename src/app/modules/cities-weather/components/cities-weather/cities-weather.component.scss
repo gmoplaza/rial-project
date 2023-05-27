@@ -1,26 +1,26 @@
 @use "@material/textfield";
+@import "../../../../styles/colors";
 
 :host {
   display: flex;
   flex-direction: column;
-  background-color: cornflowerblue;
+  background-color: $primary-color;
   width: 450px;
+  height: 100%;
 }
 
-header {
+.search-container {
   display: flex;
   flex-direction: row;
-  padding: 0 10px;
+  gap: 10px;
   align-items: center;
-  color: white;
-  .title {
-    margin-right: auto;
-  }
-  .search {
-    mat-icon {
-      font-size: 30px;
-    }
-  }
+}
+
+#tab-group{
+  height: 100%;
+}
+#tab-group mat-tab-body {
+  flex-grow: 1;
 }
 
 footer {

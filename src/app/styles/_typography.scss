@@ -1,0 +1,8 @@
+// This file contains all the configuration of the application related on the typography. Following the idea of atomic design
+
+$app-font-family: Roboto, "Helvetica Neue", sans-serif;
+
+@mixin rial-h2 {
+  font: 500 20px/32px $app-font-family;
+  letter-spacing: .0125em;
+}
