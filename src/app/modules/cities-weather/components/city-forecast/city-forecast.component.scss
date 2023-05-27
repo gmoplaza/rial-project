@@ -14,9 +14,7 @@ $cards-padding: 12px;
 
   background: url('../../../../../assets/background.png') center;
 
-  :last-child {
-    flex-grow: 1;
-  }
+  
 }
 
 .title-card {
@@ -28,6 +26,10 @@ $cards-padding: 12px;
   padding: $cards-padding;
   display: flex;
   flex-direction: column;
+  
+  &:last-child {
+    flex-grow: 1;
+  }
 }
 
 .next-hours-container {
