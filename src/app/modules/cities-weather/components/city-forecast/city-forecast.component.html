@@ -35,11 +35,11 @@
             <span class="icon">
                 <img [src]="day.icon">
             </span>
-            <div class="description">
+            <div class="description-container">
                 <span class="time">
                     {{ day.dt | date: 'shortTime' }}
                 </span>
-                <span>
+                <span class="description">
                     {{ day.description }}
                 </span>
             </div>

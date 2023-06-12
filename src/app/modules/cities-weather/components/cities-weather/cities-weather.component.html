@@ -12,7 +12,7 @@
 
 <mat-tab-group id="tab-group" (selectedTabChange)="onSelectedTabChange($event)">
   <mat-tab *ngFor="let city of filteredCities$ | async; index as i"
-    [label]="city.name">
+    [label]="city.name | uppercase">
     <ng-template matTabContent>
       <rial-city-forecast
         [cityId]="city.id">
