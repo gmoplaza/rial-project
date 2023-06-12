@@ -16,7 +16,7 @@ export class CitiesWeatherService {
   ) {}
 
   getCityForecast5(cityId: number): Observable<Forecast5Response> {
-    const forecast5Url = `http://api.openweathermap.org/data/2.5/forecast?id=${cityId}&units=metric&appid=${this.apiKey}`;
+    const forecast5Url = `https://api.openweathermap.org/data/2.5/forecast?id=${cityId}&units=metric&appid=${this.apiKey}`;
     return this._http.get<Forecast5Response>(forecast5Url).pipe(
       tap(data => console.log('Getting data from', data.city.name))
     );
